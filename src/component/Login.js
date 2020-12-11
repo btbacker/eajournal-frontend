@@ -15,7 +15,8 @@ class Login extends Component {
 
     handleSubmit = e => {
         e.preventDefault()
-        this.props.handleSubmit(this.state)
+        console.log(this.state)
+        // this.props.handleSubmit(this.state)
     }
 
     handleErrors = () => {
@@ -42,14 +43,14 @@ class Login extends Component {
                             name="email" 
                             value={email} 
                             type="text" 
-                            placeholder="Email" 
+                            placeholder="email" 
                             onChange={this.handleChange} 
                         /><br/>
                         <input 
                             name="password" 
                             value={password} 
                             type="password" 
-                            placeholder="Password" 
+                            placeholder="password" 
                             onChange={this.handleChange} 
                         /><br/>
                         <Button className="submit-btn" type="submit" variant="success">Log In</Button>

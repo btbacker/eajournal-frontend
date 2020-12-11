@@ -17,7 +17,8 @@ class Signup extends Component {
 
     handleSubmit = e => {
         e.preventDefault()
-        this.props.handleSubmit(this.state)
+        console.log(this.state)
+        this.props.handleSignup(this.state)
     }
 
     handleErrors = () => {
@@ -44,27 +45,27 @@ class Signup extends Component {
                             name="name" 
                             value={name} 
                             type="text" 
-                            placeholder="Name" 
+                            placeholder="name" 
                             onChange={this.handleChange} 
                         /><br/>
                         <input 
                             name="email" 
                             value={email} 
                             type="text" 
-                            placeholder="Email" 
+                            placeholder="email" 
                             onChange={this.handleChange} 
                         /><br/>
                         <input 
                             name="password" 
                             value={password} 
                             type="password" 
-                            placeholder="Password" 
+                            placeholder="password" 
                             onChange={this.handleChange} 
                         /><br/>
                         <input 
                             name="repeat_password" 
                             value={repeat_password} 
-                            type="text" 
+                            type="password" 
                             placeholder="repeat password" 
                             onChange={this.handleChange} 
                         /><br/>
