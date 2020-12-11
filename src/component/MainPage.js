@@ -19,8 +19,8 @@ class MainPage extends Component {
         return (
             <div>
                 <Button onClick={this.handleProfileClick} variant="primary">Profile</Button>
-                    {this.state.profile? <Profile /> : null}
-                <Calendar1/>
+                    {this.state.profile? <Profile entries={this.props.entries} /> : null}
+                <Calendar1 handleNewEntry={this.props.handleNewEntry}/>
             </div>
         );
     }

@@ -10,6 +10,8 @@ class Home extends Component {
         login: false,
         signup: false,
         auth: true,
+        user_id: "",
+        entries: [],
     }
 
     handleLoginClick = () => {
@@ -34,6 +36,31 @@ class Home extends Component {
         this.handleSignupFetch(info, 'http://localhost:3000/users')
         console.log("handleSignupFetchFunction")
     };
+
+    handleNewEntry = (info) => {
+        console.log(info)
+        // const token = localStorage.getItem('token')
+        fetch(`http://localhost:3000/journal_entries`, {
+            method: 'POST',
+            headers: {
+            'Content-Type': 'application/json',
+            // 'Authorization' : `Bearer ${token}`
+            },
+            body: JSON.stringify({entry: info.entry, user_id: this.state.user_id})
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data)
+            // debugger
+            this.setState(prevState => {
+                // debugger
+                return {
+                entries: [...prevState.entries, info]
+                } 
+            })
+        })
+    }
+    // }
 
     handleLoginFetch = (info, request) => {
         fetch(request, {
@@ -104,7 +131,7 @@ class Home extends Component {
             <div>
                 {this.state.login? <Login /> : null}
                 {this.state.signup? <Signup handleSignup={this.handleSignup} /> : null} 
-                {this.state.auth? <MainPage /> : null} 
+                {this.state.auth? <MainPage entries={this.state.entries} handleNewEntry={this.handleNewEntry}/> : null} 
             </div></>
         );
     }
