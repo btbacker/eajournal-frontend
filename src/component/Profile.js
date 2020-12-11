@@ -19,7 +19,7 @@ class Profile extends Component {
     seeEntries = () => {
         return this.props.entries.map((entry) => {
             return (
-                <Entry entry={entry}/> 
+                <Entry key={entry} entry={entry}/> 
             )
         })
     }

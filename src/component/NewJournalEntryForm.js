@@ -40,8 +40,9 @@ class NewJournalEntryForm extends Component {
     render() {
         const {entry, emotion, tag} = this.state
         return (
-            <div>
-                <Card style={{ width: '18rem' }}>
+            <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+                
+                <Card style={{ width: '20rem' }}>
                     <h1>New Entry</h1>
 
                     <form onSubmit={this.handleSubmit}>
